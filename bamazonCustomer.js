@@ -63,7 +63,7 @@ function start() {
             // check if quantity is sufficient
             if (res[whatToBuy].stock_quantity >= howMuchToBuy) {
                 // after purchase, updates quantity in products
-                connection.query("UPDATE Products SET ? WHERE ?", [
+                connection.query("UPDATE products SET ? WHERE ?", [
                     { stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy) },
                     { item_id: ans.id }
                 ], function (error, result) {
@@ -71,7 +71,7 @@ function start() {
                     console.log("Success! Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.");
                 });
 
-                connection.query("SELECT * FROM Departments", function (error, deptRes) {
+                connection.query("SELECT * FROM departments", function (error, deptRes) {
                     if (error) throw error;
                     var index;
                     for (var i = 0; i < deptRes.length; i++) {
@@ -81,7 +81,7 @@ function start() {
                     }
 
                     // updates total_sales in departments table
-                    connection.query("UPDATE Departments SET ? WHERE ?", [
+                    connection.query("UPDATE departments SET ? WHERE ?", [
                         { total_sales: deptRes[index].total_sales + grandTotal },
                         { department_name: res[whatToBuy].department_name }
                     ], function (error, deptRes) {

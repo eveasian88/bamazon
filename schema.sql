@@ -22,7 +22,7 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Twighlight Series","ENTERTAINMENT", 11.11, 100),
     ("COD","ENTERTAINMENT", 59.99, 100),
     ("Spam Lovers Sampler","GROCERY", 24.50, 50),
-    ("Ray Ban Sunglasses","CLOTHING", 95.00, 50),
+    ("Ray Ban Sunglasses","CLOTHING", 95.00, 5),
     ("BCBG Dress","CLOTHING", 75.25, 50),
     ("Bay Watch Towel","SPORTS & OUTDOORS", 12.12, 20),
     ("Miss Congeniality","ENTERTAINMENT", 15.50, 100),
