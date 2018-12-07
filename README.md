@@ -8,8 +8,9 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 - Run command in Terminal or Gitbash "npm install"
 - Run command depending on which mode you would like to be on:
     - Customer - "node bamazonCustomer.js"
+    - Manager - "node bamazonCustomer.js"
 
-- Run "ctrl + c" to exit each mode
+- Run "ctrl + c" to exit out of each mode
 
 
 ### bamazonCustomer.js
@@ -21,6 +22,7 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
     - If there isn't enough product in stock, it will tell the user that the item isn't in stock
     - If the purchase goes through, it updates the stock quantity to reflect the purchase
     - It also updates the product sales in the department MySQL Database Table
+
 
 
 ## Technologies Utilized
