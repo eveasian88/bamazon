@@ -19,16 +19,16 @@ SELECT * FROM products;
 
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("The Hunger Games","ENTERTAINMENT", 29.95, 150),
-    ("COD","ENTERTAINMENT", 59.99, 200),
-    ("Spam Lovers Sample","GROCERY", 24.50, 50),
-    ("Ray Ban Sunglasses","CLOTHING", 85.00, 5),
-    ("BCBG Dress","CLOTHING", 55.25, 35),
-    ("Bay Watch Towel","SPORTS & OUTDOORS", 22.42, 42),
-    ("Miss Congeniality","ENTERTAINMENT", 15.00, 25),
-    ("Mad Max: Fury Road","ENTERTAINMENT", 25.50, 57),
-    ("Monopoly","ENTERTAINMENT", 19.50, 35),
-    ("Apples to Apples","ENTERTAINMENT", 19.95, 23);
+VALUES ("Twighlight Series","ENTERTAINMENT", 11.11, 100),
+    ("COD","ENTERTAINMENT", 59.99, 100),
+    ("Spam Lovers Sampler","GROCERY", 24.50, 50),
+    ("Ray Ban Sunglasses","CLOTHING", 95.00, 50),
+    ("BCBG Dress","CLOTHING", 75.25, 50),
+    ("Bay Watch Towel","SPORTS & OUTDOORS", 12.12, 20),
+    ("Miss Congeniality","ENTERTAINMENT", 15.50, 100),
+    ("Mad Max: Fury Road","ENTERTAINMENT", 15.50, 100),
+    ("Monopoly","ENTERTAINMENT", 19.50, 20),
+    ("Apples to Apples","ENTERTAINMENT", 19.50, 20);
 
 CREATE TABLE departments (
     department_id MEDIUMINT AUTO_INCREMENT NOT NULL,

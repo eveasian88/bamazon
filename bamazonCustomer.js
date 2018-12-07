@@ -18,15 +18,15 @@ connection.connect(function(error) {
 
 function start() {
     // prints items for sale and details
-    connection.query("SELECT * FROM Products", function (error, res) {
+    connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
 
-        console.log("-----~Welcome to Bamazon!!!~-----")
-        console.log("---------------------------------------------------------------------------------------------------")
+        console.log("-------~~WELCOME TO BAMAZON!!!~~-------")
+        console.log("---------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {
             console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
-            console.log("---------------------------------------------------------------------------------------------------")
+            console.log("---------------------------------------------------------------------------------------------")
         }
 
         console.log(" ");
@@ -62,7 +62,7 @@ function start() {
 
             // check if quantity is sufficient
             if (res[whatToBuy].stock_quantity >= howMuchToBuy) {
-                // after purchase, updates quantity in Products
+                // after purchase, updates quantity in products
                 connection.query("UPDATE Products SET ? WHERE ?", [
                     { stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy) },
                     { item_id: ans.id }
