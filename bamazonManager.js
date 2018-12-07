@@ -32,33 +32,35 @@ function start() {
     });
 }
 
+
 // view all inventory
 function viewProducts() {
     console.log(">>>>>>>>VIEWING PRODUCTS<<<<<<<<");
 
-    connection.query('SELECT * FROM products', function (erroror, res) {
-        if (erroror) throw erroror;
+    connection.query("SELECT * FROM products", function (error, res) {
+        if (error) throw error;
         console.log("---------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {
-            console.log("ID: " + res[i].ItemID + " | " + "Product: " + res[i].ProductName + " | " + "Department: " + res[i].DepartmentName + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].StockQuantity);
+            console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].stock_quantity);
             console.log("---------------------------------------------------------------------------------------------")
         }
         start();
     });
 }
 
+
 // view inventory lower than 5
 function viewLowInventory() {
     console.log(">>>>>>>>VIEWING LOW INVENTORY<<<<<<<<");
 
-    connection.query('SELECT * FROM Products', function (error, res) {
+    connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
         console.log("---------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {
-            if (res[i].StockQuantity <= 5) {
-                console.log("ID: " + res[i].ItemID + " | " + "Product: " + res[i].ProductName + " | " + "Department: " + res[i].DepartmentName + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].StockQuantity);
+            if (res[i].stock_quantity <= 5) {
+                console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].stock_quantity);
                 console.log("---------------------------------------------------------------------------------------------");
             }
         }
@@ -67,9 +69,106 @@ function viewLowInventory() {
 }
 
 
+// displays prompt to add more of an item to the store and asks how much
+function addToInventory() {
+    console.log('>>>>>>>>Adding to Inventory<<<<<<<<');
+
+    connection.query("SELECT * FROM products", function (error, res) {
+        if (error) throw error;
+        var itemArray = [];
+        // pushes each item into an itemArray
+        for (var i = 0; i < res.length; i++) {
+            itemArray.push(res[i].product_name);
+        }
+
+        inquirer.prompt([{
+            type: "list",
+            name: "product",
+            choices: itemArray,
+            message: "Which item would you like to add inventory?"
+        }, {
+            type: "input",
+            name: "qty",
+            message: "How much would you like to add?",
+            validate: function (value) {
+                if (isNaN(value) === false) { return true; }
+                else { return false; }
+            }
+        }]).then(function (ans) {
+            var currentQty;
+            for (var i = 0; i < res.length; i++) {
+                if (res[i].product_name === ans.product) {
+                    currentQty = res[i].stock_quantity;
+                }
+            }
+            connection.query("UPDATE products SET ? WHERE ?", [
+                { stock_quantity: currentQty + parseInt(ans.qty) },
+                { product_name: ans.product }
+            ], function (error, res) {
+                if (error) throw error;
+                console.log("The quantity was updated.");
+                start();
+            });
+        })
+    });
+}
 
 
+// allows manager to add a completely new product to store
+function addNewProduct() {
+    console.log('>>>>>>>>Adding New Product<<<<<<<<');
+    var deptNames = [];
 
+    // grabs name of departments
+    connection.query("SELECT * FROM departments", function (error, res) {
+        if (error) throw error;
+        for (var i = 0; i < res.length; i++) {
+            deptNames.push(res[i].department_name);
+        }
+    })
+
+    inquirer.prompt([{
+        type: "input",
+        name: "product",
+        message: "Product: ",
+        validate: function (value) {
+            if (value) { return true; }
+            else { return false; }
+        }
+    }, {
+        type: "list",
+        name: "department",
+        message: "Department: ",
+        choices: deptNames
+    }, {
+        type: "input",
+        name: "price",
+        message: "Price: ",
+        validate: function (value) {
+            if (isNaN(value) === false) { return true; }
+            else { return false; }
+        }
+    }, {
+        type: "input",
+        name: "quantity",
+        message: "Quantity: ",
+        validate: function (value) {
+            if (isNaN(value) == false) { return true; }
+            else { return false; }
+        }
+    }]).then(function (ans) {
+        connection.query("INSERT INTO Products SET ?", {
+            product_name: ans.product,
+            department_name: ans.department,
+            price: ans.price,
+            stock_quantity: ans.quantity
+        }, function (error, res) {
+            if (error) throw error;
+            console.log("Another item was added to the store.");
+        })
+        start();
+    });
+}
 
 
 start();
