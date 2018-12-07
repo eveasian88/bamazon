@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/eveasian88/bamazon/issues"
   },
-  "homepage": "https://github.com/eveasian88/bamazon#readme"
+  "homepage": "https://github.com/eveasian88/bamazon#readme",
+  "dependencies": {
+    "inquirer": "^6.2.1"
+  }
 }
