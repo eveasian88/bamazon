@@ -22,11 +22,11 @@ function start() {
         if (error) throw error;
 
         console.log("-----~Welcome to Bamazon!!!~-----")
-        console.log("---------------------------------")
+        console.log("---------------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {
             console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
-            console.log('---------------------------------')
+            console.log("---------------------------------------------------------------------------------------------------")
         }
 
         console.log(" ");
