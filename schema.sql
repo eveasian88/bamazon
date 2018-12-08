@@ -19,14 +19,14 @@ SELECT * FROM products;
 
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Twighlight Series","ENTERTAINMENT", 11.11, 100),
-    ("COD","ENTERTAINMENT", 59.99, 100),
-    ("Spam Lovers Sampler","GROCERY", 24.50, 50),
-    ("Ray Ban Sunglasses","CLOTHING", 95.00, 5),
-    ("BCBG Dress","CLOTHING", 75.25, 50),
-    ("Bay Watch Towel","SPORTS & OUTDOORS", 12.12, 20),
-    ("Miss Congeniality","ENTERTAINMENT", 15.50, 100),
-    ("Mad Max: Fury Road","ENTERTAINMENT", 15.50, 100),
+VALUES ("Twighlight Series","ENTERTAINMENT", 11.11, 111),
+	("Ray Ban Aviators","CLOTHING", 99.99, 5),
+    ("BCBG Maxi Dress","CLOTHING", 75.25, 50),
+    ("Moxie Roller Skates","SPORTS & OUTDOORS", 222.22, 10),
+    ("Giradelli Chocolate Lovers Sampler","GROCERY", 24.95, 50),
+    ("Miss Congeniality","ENTERTAINMENT", 15.75, 50),
+    ("Mad Max: Fury Road","ENTERTAINMENT", 15.75, 50),
+    ("COD Black Ops","ENTERTAINMENT", 59.99, 100),
     ("Monopoly","ENTERTAINMENT", 19.50, 20),
     ("Apples to Apples","ENTERTAINMENT", 19.50, 20);
 

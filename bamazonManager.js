@@ -85,7 +85,7 @@ function addToInventory() {
             type: "list",
             name: "product",
             choices: itemArray,
-            message: "Which item would you like to add inventory?"
+            message: "Which item would you like to add to inventory?"
         }, {
             type: "input",
             name: "qty",
