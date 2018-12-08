@@ -27,18 +27,18 @@ VALUES ("Twighlight Series","ENTERTAINMENT", 11.11, 111),
     ("COD Black Ops","ENTERTAINMENT", 59.99, 100),
     ("Mad Max: Fury Road","ENTERTAINMENT", 15.75, 50),
     ("Moxie Roller Skates","SPORTS & OUTDOORS", 222.22, 10),
-    ("Monopoly","ENTERTAINMENT", 19.50, 20),
-    ("Scrabble","ENTERTAINMENT", 19.50, 20);
+    ("Monopoly","ENTERTAINMENT", 11.50, 20),
+    ("Scrabble","ENTERTAINMENT", 29.50, 20);
 
 CREATE TABLE departments (
     department_id MEDIUMINT AUTO_INCREMENT NOT NULL,
     department_name VARCHAR(50) NOT NULL,
-    over_headCosts DECIMAL(10,2) NOT NULL,
+    overhead_costs DECIMAL(10,2) NOT NULL,
     total_sales DECIMAL(10,2) NOT NULL,
     PRIMARY KEY(department_id)
     );
 
-INSERT INTO departments (department_name, over_headCosts, total_sales)
+INSERT INTO departments (department_name, overhead_costs, total_sales)
 VALUES ('ENTERTAINMENT', 50000.00, 15000.00),
     ('ELECTRONICS', 20000.00, 12000.00),
     ('HOME', 30000.00, 15000.00),
