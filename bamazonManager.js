@@ -27,7 +27,7 @@ function start() {
                 break;
             case "Add New Product": addNewProduct();
                 break;
-            case "End Session": console.log('Bye!');
+            case "End Session": console.log("Bye!");
         }
     });
 }

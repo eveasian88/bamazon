@@ -1,6 +1,7 @@
 // require mysql and inquirer
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var chalk = require("chalk");
 
 // create connection to database
 var connection = mysql.createConnection({
@@ -11,10 +12,10 @@ var connection = mysql.createConnection({
     database: "bamazon_DB"
 });
 
-connection.connect(function(error) {
+connection.connect(function (error) {
     if (error) throw error;
     start();
-  });
+});
 
 function start() {
     // prints items for sale and details
@@ -25,7 +26,7 @@ function start() {
         console.log("---------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {
-            console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
+            console.log(chalk.cyan("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity));
             console.log("---------------------------------------------------------------------------------------------")
         }
 
@@ -66,7 +67,7 @@ function start() {
                 connection.query("UPDATE products SET ? WHERE ?", [
                     { stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy) },
                     { item_id: ans.id }
-                ], function (error, result) {
+                ], function (error) {
                     if (error) throw error;
                     console.log("Success! Your total is $" + grandTotal.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.");
                 });
@@ -93,7 +94,6 @@ function start() {
             } else {
                 console.log("Sorry, there's not enough in stock!");
             }
-
             reprompt();
         })
     })
@@ -114,4 +114,3 @@ function reprompt() {
     });
 }
 
-start();
