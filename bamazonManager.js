@@ -173,6 +173,3 @@ function addNewProduct() {
 
 
 start();
-
-
-// price "undefined" in the terminal

@@ -36,12 +36,12 @@ function viewProductByDept() {
     // prints the items for sale and their details
     connection.query('SELECT * FROM departments', function (error, res) {
         if (error) throw error;
-        console.log('>>>>>><<<<<>>>>><<<<<```````PRODUCT SALES BY DEPARTMENT```````<<<<<<>>>>><<<<<>>>>><<<<<>>>>>');
-        console.log("---------------------------------------------------------------------------------------------")
+        console.log(chalk.cyan("-------------------------------------------------PRODUCT SALES BY DEPARTMENT----------------------------------------------------"));
+        console.log(chalk.cyan("--------------------------------------------------------------------------------------------------------------------------------"))
 
         for (var i = 0; i < res.length; i++) {
             console.log(chalk.cyan("Department ID: " + res[i].department_id + " | " + "Department Name: " + res[i].department_name + " | " + "Over Head Cost: " + (res[i].overhead_costs).toFixed(2) + " | " + "Product Sales: " + (res[i].total_sales).toFixed(2) + " | " + "Total Profit: " + (res[i].total_sales - res[i].overhead_costs).toFixed(2)));
-            console.log("---------------------------------------------------------------------------------------------")
+            console.log("--------------------------------------------------------------------------------------------------------------------------------")
         }
         start();
     })
