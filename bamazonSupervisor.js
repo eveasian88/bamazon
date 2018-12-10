@@ -49,7 +49,7 @@ function viewProductByDept() {
 
 // create a new department
 function createNewDept() {
-    console.log(">>>>>>Creating New Department<<<<<<");
+    console.log("---------------------------------------CREATING NEW DEPARTMENT---------------------------------");
     // prompts to add deptName and numbers. if no value is then by default = 0
     inquirer.prompt([
         {

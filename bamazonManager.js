@@ -43,7 +43,7 @@ function viewProducts() {
         console.log(chalk.cyan("-----------------------------------------------------------------------------------------------"))
 
         for (var i = 0; i < res.length; i++) {
-            console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
+            console.log(chalk.cyan("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity));
             console.log(chalk.cyan("-----------------------------------------------------------------------------------------------"))
         }
         start();
@@ -72,7 +72,7 @@ function viewLowInventory() {
 
 // displays prompt to add more of an item to the store and asks how much
 function addToInventory() {
-    console.log(chalk.cyan("-----------------------------------------ADDING TO INVENTORY---------------------------------"));
+    console.log(chalk.cyan("------------------------------------------ADDING TO INVENTORY----------------------------------"));
 
     connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
@@ -117,7 +117,7 @@ function addToInventory() {
 
 // allows manager to add a completely new product to store
 function addNewProduct() {
-    console.log(chalk.cyan("----------------------------------------ADDING NEW PRODUCT-----------------------------------"));
+    console.log(chalk.cyan("-----------------------------------------ADDING NEW PRODUCT------------------------------------"));
     var deptNames = [];
 
     // grabs name of departments
@@ -158,7 +158,7 @@ function addNewProduct() {
             else { return false; }
         }
     }]).then(function (ans) {
-        connection.query("INSERT INTO Products SET ?", {
+        connection.query("INSERT INTO products SET ?", {
             product_name: ans.product,
             department_name: ans.department,
             price: ans.price,
