@@ -172,3 +172,6 @@ function addNewProduct() {
 
 
 start();
+
+
+// quantity "undefined" in the terminal
