@@ -36,15 +36,15 @@ function start() {
 
 // view all inventory
 function viewProducts() {
-    console.log(">>>>>>>>VIEWING PRODUCTS<<<<<<<<");
+    console.log(chalk.cyan("-------------------------------------------VIEWING PRODUCTS------------------------------------"));
 
     connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
-        console.log("---------------------------------------------------------------------------------------------")
+        console.log(chalk.cyan("-----------------------------------------------------------------------------------------------"))
 
         for (var i = 0; i < res.length; i++) {
             console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
-            console.log("---------------------------------------------------------------------------------------------")
+            console.log(chalk.cyan("-----------------------------------------------------------------------------------------------"))
         }
         start();
     });
@@ -53,16 +53,16 @@ function viewProducts() {
 
 // view inventory lower than 5
 function viewLowInventory() {
-    console.log(">>>>>>>>VIEWING LOW INVENTORY<<<<<<<<");
+    console.log(chalk.cyan("-----------------------------------------VIEWING LOW INVENTORY---------------------------------"));
 
     connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
-        console.log("---------------------------------------------------------------------------------------------")
+        console.log("-----------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {
             if (res[i].stock_quantity <= 5) {
                 console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
-                console.log("---------------------------------------------------------------------------------------------");
+                console.log(chalk.cyan("-----------------------------------------------------------------------------------------------"));
             }
         }
         start();
@@ -72,7 +72,7 @@ function viewLowInventory() {
 
 // displays prompt to add more of an item to the store and asks how much
 function addToInventory() {
-    console.log('>>>>>>>>Adding to Inventory<<<<<<<<');
+    console.log(chalk.cyan("-----------------------------------------ADDING TO INVENTORY---------------------------------"));
 
     connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
@@ -117,7 +117,7 @@ function addToInventory() {
 
 // allows manager to add a completely new product to store
 function addNewProduct() {
-    console.log('>>>>>>>>Adding New Product<<<<<<<<');
+    console.log(chalk.cyan("----------------------------------------ADDING NEW PRODUCT-----------------------------------"));
     var deptNames = [];
 
     // grabs name of departments
@@ -170,6 +170,5 @@ function addNewProduct() {
         start();
     });
 }
-
 
 start();

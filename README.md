@@ -5,7 +5,7 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 ## Getting Started
 
 - Clone Repo
-- Run command in Terminal or Gitbash "npm install"
+- Run command in Terminal "npm install"
 - Run command depending on which mode you would like to be on:
     - Customer - "node bamazonCustomer.js"
     - Manager - "node bamazonCustomer.js"
