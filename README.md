@@ -1,6 +1,6 @@
 # bamazon
 
-BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
+BAMAZON is an Amazon-like store front using Node.js and MySQL Database.
 
 ## Getting Started
 
@@ -65,8 +65,11 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 
 - JavaScript
 - Node.js
-- Inquire NPM Package
-- MySQL NPM Package
+- NPM Packages
+    - MySQL
+    - Inquirer
+    - Chalk
+    - Colors
 
 
 ### Author
