@@ -24,6 +24,27 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
     - It also updates the product sales in the department MySQL Database Table
 
 
+### bamazonManager.js
+
+- Starts with a Menu
+- Prompts the manager to select what they would like to do:
+    - View Products for Sale
+    - View Low Inventory
+    - Add to Inventory
+    - Add New Product
+    - End Session
+
+- If the manager selects "View Products for Sale", it lists all of the products in the store, including all the details
+
+- If the manager selects "View Low Inventory", it lists all of the products with less than 5 items in stock
+
+- If the manager selects "Add to Inventory", it allows the manager to select a product and add new quantity to the inventory
+
+- If the manager selects "Add New Product", it allows the manager to add a new item for sale to the store
+
+- If the manager selects "End Session", it ends the session by not going back to the menu and the manager exits the program
+
+
 
 ## Technologies Utilized
 
