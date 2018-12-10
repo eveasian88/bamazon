@@ -53,15 +53,15 @@ function viewProducts() {
 
 // view inventory lower than 5
 function viewLowInventory() {
-    console.log(chalk.cyan("-----------------------------------------VIEWING LOW INVENTORY---------------------------------"));
+    console.log(chalk.magenta("-----------------------------------------VIEWING LOW INVENTORY---------------------------------"));
 
     connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
-        console.log("-----------------------------------------------------------------------------------------------")
+        console.log((chalk.cyan("-----------------------------------------------------------------------------------------------")))
 
         for (var i = 0; i < res.length; i++) {
             if (res[i].stock_quantity <= 5) {
-                console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
+                console.log(chalk.magenta("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity));
                 console.log(chalk.cyan("-----------------------------------------------------------------------------------------------"));
             }
         }
@@ -117,7 +117,7 @@ function addToInventory() {
 
 // allows manager to add a completely new product to store
 function addNewProduct() {
-    console.log(chalk.cyan("-----------------------------------------ADDING NEW PRODUCT------------------------------------"));
+    console.log(chalk.yellow("-----------------------------------------ADDING NEW PRODUCT------------------------------------"));
     var deptNames = [];
 
     // grabs name of departments
@@ -160,9 +160,9 @@ function addNewProduct() {
     }]).then(function (ans) {
         connection.query("INSERT INTO products SET ?", {
             product_name: ans.product,
-            department_name: ans.department,
+            department_name: ans.department_name,
             price: ans.price,
-            stock_quantity: ans.quantity
+            stock_quantity: ans.stock_quantity
         }, function (error, res) {
             if (error) throw error;
             console.log("Another item was added to the store.");

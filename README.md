@@ -8,7 +8,7 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 - Run command in Terminal "npm install"
 - Run command depending on which mode you would like to be on:
     - Customer - "node bamazonCustomer.js"
-    - Manager - "node bamazonCustomer.js"
+    - Manager - "node bamazonManager.js"
     - Supervisor - "node bamazonSupervisor.js"
 
 - Run "ctrl + c" to exit out of each mode
@@ -17,8 +17,8 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 ### bamazonCustomer.js
 
 - Prints the products in the store for the customer
-- Prompts the customer to what products they would like to purchase based on ID number
-- Asks the quantity of the item
+- Menu prompts the customer to what products they would like to purchase based on ID number
+- Asks the customer the quantity of items they would like to purchase
 
     - If there is sufficient amount of product in stock, the customer receives a total for that purchase and the sale is successful.
     - If there isn't enough product in stock, the customer is told that the item isn't in stock.
@@ -28,8 +28,7 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 
 ### bamazonManager.js
 
-- Starts with a Menu
-- Prompts the manager to select what they would like to do:
+- Menu prompts the manager to select what they would like to do:
     - View Products for Sale
     - View Low Inventory
     - Add to Inventory
@@ -44,13 +43,12 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 
 - If the manager selects "Add New Product", it allows the manager to add a new item for sale to the store.
 
-- If the manager selects "End Session", it ends the session by not going back to the menu and the manager exits the program.
+- If the manager selects "End Session", it ends the session by not going back to the menu.
 
 
 ### bamazonSupervisor.js
 
-- Starts with a Menu
-- Prompts the supervisor to select what they would like to do:
+- Menu prompts the supervisor to select what they would like to do:
     - View Product Sales by Department
     - Create New Department
     - End Session
@@ -60,7 +58,7 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 
 - If the supervisor selects "Create New Department, it allows the manager to create a new department and input current overhead costs and product sales.
 
-- If the supervisor selects "End Session, the session ends by not going back back to the menu and the manager exits the program.
+- If the supervisor selects "End Session, the session ends by not going back back to the menu.
 
 
 ## Technologies Utilized
@@ -71,6 +69,6 @@ BAMAZON is an Amazon-like store front using Node.js and a MySQL Database.
 - MySQL NPM Package
 
 
-### Authors
+### Author
 
-- Susye Weng-Reeder - *JS/ Node.js/ MySQL* - [Susye Weng-Reeder](https://eveasian88.github.io/Professional-Portfolio/ "Susye's Portfolio")
+- Susye Weng-Reeder - *JavaScript/ Node.js/ MySQL* - [Susye Weng-Reeder](https://eveasian88.github.io/Professional-Portfolio/ "Susye's Portfolio")

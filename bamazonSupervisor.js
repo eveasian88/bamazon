@@ -36,12 +36,12 @@ function viewProductByDept() {
     // prints the items for sale and their details
     connection.query('SELECT * FROM departments', function (error, res) {
         if (error) throw error;
-        console.log(chalk.cyan("-------------------------------------------------PRODUCT SALES BY DEPARTMENT----------------------------------------------------"));
+        console.log("-------------------------------------------------PRODUCT SALES BY DEPARTMENT----------------------------------------------------");
         console.log(chalk.cyan("--------------------------------------------------------------------------------------------------------------------------------"))
 
         for (var i = 0; i < res.length; i++) {
-            console.log(chalk.cyan("Department ID: " + res[i].department_id + " | " + "Department Name: " + res[i].department_name + " | " + "Over Head Cost: " + (res[i].overhead_costs).toFixed(2) + " | " + "Product Sales: " + (res[i].total_sales).toFixed(2) + " | " + "Total Profit: " + (res[i].total_sales - res[i].overhead_costs).toFixed(2)));
-            console.log("--------------------------------------------------------------------------------------------------------------------------------")
+            console.log("Department ID: " + res[i].department_id + " | " + "Department Name: " + res[i].department_name + " | " + "Over Head Cost: " + (res[i].overhead_costs).toFixed(2) + " | " + "Product Sales: " + (res[i].total_sales).toFixed(2) + " | " + "Total Profit: " + (res[i].total_sales - res[i].overhead_costs).toFixed(2));
+            console.log(chalk.cyan("--------------------------------------------------------------------------------------------------------------------------------"))
         }
         start();
     })
@@ -49,8 +49,8 @@ function viewProductByDept() {
 
 // create a new department
 function createNewDept() {
-    console.log("---------------------------------------CREATING NEW DEPARTMENT---------------------------------");
-    // prompts to add department_name and numbers. if no value is then by default = 0
+    console.log("--------------------------------------CREATING NEW DEPARTMENT----------------------------------");
+    // prompts to add department_name and numbers. if no value is inputed then default = 0
     inquirer.prompt([
         {
             type: "input",
@@ -58,7 +58,7 @@ function createNewDept() {
             message: "Department Name: "
         }, {
             type: "input",
-            name: "overhead_cost",
+            name: "overhead_costs",
             message: "Over Head Cost: ",
             default: 0,
             validate: function (val) {
@@ -67,8 +67,8 @@ function createNewDept() {
             }
         }, {
             type: "input",
-            name: "product_sales",
-            message: "Product Sales: ",
+            name: "total_sales",
+            message: "Total Sales: ",
             default: 0,
             validate: function (val) {
                 if (isNaN(val) === false) { return true; }
@@ -77,9 +77,9 @@ function createNewDept() {
         }
     ]).then(function (ans) {
         connection.query('INSERT INTO departments SET ?', {
-            DepartmentName: ans.department_name,
-            OverHeadCosts: ans.overhead_costs,
-            TotalSales: ans.prodSales
+            department_name: ans.department_name,
+            overhead_costs: ans.overhead_costs,
+            total_sales: ans.total_sales
         }, function (error, res) {
             if (error) throw error;
             console.log('Another department was added.');
@@ -89,5 +89,3 @@ function createNewDept() {
 }
 
 start();
-
-// create new product, product sale throws an error
