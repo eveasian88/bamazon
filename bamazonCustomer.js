@@ -22,7 +22,7 @@ function start() {
     connection.query("SELECT * FROM products", function (error, res) {
         if (error) throw error;
 
-        console.log("----~~WELCOME TO BAMAZON!!!~~----")
+        console.log("------------~~~~~*****`````~~~~~/////WELCOME TO BAMAZON!/////~~~~~`````*****~~~~~------------")
         console.log("---------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {

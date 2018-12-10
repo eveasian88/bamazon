@@ -1,6 +1,7 @@
 // require mysql and inquirer
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var chalk = require("chalk");
 
 // create connection to database
 var connection = mysql.createConnection({
@@ -42,7 +43,7 @@ function viewProducts() {
         console.log("---------------------------------------------------------------------------------------------")
 
         for (var i = 0; i < res.length; i++) {
-            console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].stock_quantity);
+            console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
             console.log("---------------------------------------------------------------------------------------------")
         }
         start();
@@ -60,7 +61,7 @@ function viewLowInventory() {
 
         for (var i = 0; i < res.length; i++) {
             if (res[i].stock_quantity <= 5) {
-                console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].Price + " | " + "QTY: " + res[i].stock_quantity);
+                console.log("ID: " + res[i].item_id + " | " + "Product: " + res[i].product_name + " | " + "Department: " + res[i].department_name + " | " + "Price: " + res[i].price + " | " + "QTY: " + res[i].stock_quantity);
                 console.log("---------------------------------------------------------------------------------------------");
             }
         }
@@ -174,4 +175,4 @@ function addNewProduct() {
 start();
 
 
-// quantity "undefined" in the terminal
+// price "undefined" in the terminal
