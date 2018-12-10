@@ -26,6 +26,9 @@ BAMAZON is an Amazon-like store front using Node.js and MySQL Database.
     - It also updates the product sales in the department MySQL Database Table.
 
 
+![bamazon customer](images/customer.gif "bamazonCustomer.js")
+
+
 ### bamazonManager.js
 
 - Menu prompts the manager to select what they would like to do:
@@ -46,6 +49,9 @@ BAMAZON is an Amazon-like store front using Node.js and MySQL Database.
 - If the manager selects "End Session", it ends the session by not going back to the menu.
 
 
+![bamazon manager](images/manager.gif "bamazonManager.js")
+
+
 ### bamazonSupervisor.js
 
 - Menu prompts the supervisor to select what they would like to do:
@@ -60,6 +66,8 @@ BAMAZON is an Amazon-like store front using Node.js and MySQL Database.
 
 - If the supervisor selects "End Session, the session ends by not going back back to the menu.
 
+
+![bamazon supervisor](images/supervisor.gif "bamazonSupervisor.js")
 
 ## Technologies Utilized
 

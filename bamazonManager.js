@@ -130,7 +130,7 @@ function addNewProduct() {
 
     inquirer.prompt([{
         type: "input",
-        name: "product",
+        name: "product_name",
         message: "Product: ",
         validate: function (value) {
             if (value) { return true; }
@@ -138,7 +138,7 @@ function addNewProduct() {
         }
     }, {
         type: "list",
-        name: "department",
+        name: "department_name",
         message: "Department: ",
         choices: deptNames
     }, {
@@ -151,7 +151,7 @@ function addNewProduct() {
         }
     }, {
         type: "input",
-        name: "quantity",
+        name: "stock_quantity",
         message: "Quantity: ",
         validate: function (value) {
             if (isNaN(value) == false) { return true; }
@@ -159,7 +159,7 @@ function addNewProduct() {
         }
     }]).then(function (ans) {
         connection.query("INSERT INTO products SET ?", {
-            product_name: ans.product,
+            product_name: ans.product_name,
             department_name: ans.department_name,
             price: ans.price,
             stock_quantity: ans.stock_quantity
