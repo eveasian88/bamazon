@@ -82,4 +82,4 @@ BAMAZON is an Amazon-like store front using Node.js and MySQL Database.
 
 ### Author
 
-- Susye Weng-Reeder - *JavaScript/ Node.js/ MySQL* - [Susye Weng-Reeder](https://eveasian88.github.io/Professional-Portfolio/ "Susye's Portfolio")
+- Susye Weng-Reeder - *JavaScript/ Node.js/ MySQL* - [Susye Weng-Reeder](https://www.weng-reeder.com/ "Susye's Portfolio")
